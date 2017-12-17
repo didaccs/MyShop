@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyShop.DataAcces.SQL", "MyS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyShop.DataAccess.InMemory", "MyShop.DataAccess.InMemory\MyShop.DataAccess.InMemory.csproj", "{50E5D5C5-386F-435C-A525-0B3BE932F480}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySop.WebUI", "MySop.WebUI\MySop.WebUI.csproj", "{48026C62-D20C-4824-BAE2-9E57DFD1A3F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyShop.WebUI", "MySop.WebUI\MyShop.WebUI.csproj", "{48026C62-D20C-4824-BAE2-9E57DFD1A3F9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySop.WebUI.Tests", "MySop.WebUI.Tests\MySop.WebUI.Tests.csproj", "{4EEEF76A-9A24-4D73-93F0-CD1425F7C97C}"
 EndProject
