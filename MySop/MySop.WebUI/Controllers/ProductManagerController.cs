@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -39,7 +40,7 @@ namespace MySop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Product product)
+        public ActionResult Create(Product product, HttpPostedFileBase file)
         {
             if (!ModelState.IsValid)
             {
@@ -47,6 +48,12 @@ namespace MySop.WebUI.Controllers
             }
             else
             {
+                if (file!= null)
+                {
+                    product.Image = product.Id + Path.GetExtension(file.FileName);
+                    file.SaveAs(Server.MapPath("//Content//ProductImages//") + product.Image);
+                }
+
                 context.Insert(product);
                 context.Commit();
 
@@ -73,9 +80,10 @@ namespace MySop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Product product, string Id)
+        public ActionResult Edit(Product product, string Id, HttpPostedFileBase file)
         {
-            Product productEdit = context.Find(Id);
+
+           Product productEdit = context.Find(Id);
 
             if (productEdit == null)
             {
@@ -89,9 +97,14 @@ namespace MySop.WebUI.Controllers
                 }
                 else
                 {
+                    if (file != null)
+                    {
+                        productEdit.Image = product.Id + Path.GetExtension(file.FileName);
+                        file.SaveAs(Server.MapPath("//Content//ProductImages//") + productEdit.Image);
+                    }
+
                     productEdit.Category = product.Category;
                     productEdit.Description = product.Description;
-                    productEdit.Image = product.Image;
                     productEdit.Name = product.Name;
                     productEdit.Price = product.Price;
 
